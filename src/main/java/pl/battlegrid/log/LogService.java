@@ -1,0 +1,31 @@
+package pl.battlegrid.log;
+
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
+import pl.battlegrid.unit.UnitColorEnum;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
+
+@RequiredArgsConstructor
+@Service
+public class LogService {
+
+    private final LogRepository repository;
+
+    public List<LogDTO> getGameLogs(Long idGame, UnitColorEnum color) {
+        List<Log> logs = repository.findAllByGameIdAndUnitsColor(idGame, color);
+        if (logs == null || logs.isEmpty()) return new ArrayList<>();
+        return logs.stream()
+                .map(this::mapToDTO)
+                .collect(Collectors.toList());
+    }
+
+    private LogDTO mapToDTO(Log log) {
+        return new LogDTO() {{
+            setCommand(log.getCommand());
+            setCreatedAt(log.getCreatedAt());
+        }};
+    }
+}

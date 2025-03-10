@@ -9,3 +9,10 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: false
+
+game:
+  settings:
+    grid-size: 8
+    archers: 4
+    transports: 5
+    cannons: 2
