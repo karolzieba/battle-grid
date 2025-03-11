@@ -1,4 +1,4 @@
-package pl.battlegrid.unit;
+package pl.battlegrid.unit.enums;
 
 public enum UnitTypeEnum {
 

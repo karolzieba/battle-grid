@@ -3,7 +3,7 @@ package pl.battlegrid.log;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import pl.battlegrid.unit.UnitColorEnum;
+import pl.battlegrid.unit.enums.UnitColorEnum;
 
 import java.util.List;
 

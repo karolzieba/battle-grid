@@ -4,8 +4,9 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import org.hibernate.annotations.UpdateTimestamp;
 import pl.battlegrid.game.Game;
+import pl.battlegrid.unit.enums.UnitColorEnum;
+import pl.battlegrid.unit.enums.UnitTypeEnum;
 
 import java.time.LocalDateTime;
 
@@ -21,28 +22,27 @@ public class Unit {
     private Long id;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "TYPE")
+    @Column(name = "TYPE", nullable = false)
     private UnitTypeEnum type;
 
     @Enumerated(value = EnumType.STRING)
-    @Column(name = "COLOR")
+    @Column(name = "COLOR", nullable = false)
     private UnitColorEnum color;
 
-    @Column(name = "POSITION_X")
+    @Column(name = "POSITION_X", nullable = false)
     private Integer positionX;
 
-    @Column(name = "POSITION_Y")
+    @Column(name = "POSITION_Y", nullable = false)
     private Integer positionY;
 
-    @Column(name = "ACTIVE")
-    private Boolean active;
+    @Column(name = "ACTIVE", nullable = false)
+    private Boolean active = true;
 
-    @UpdateTimestamp
-    @Column(name = "LAST_COMMAND_TIME")
+    @Column(name = "LAST_COMMAND_TIME", nullable = false)
     private LocalDateTime lastCommandTime;
 
     @ManyToOne
-    @JoinColumn(name = "ID_GAME")
+    @JoinColumn(name = "ID_GAME", nullable = false)
     private Game game;
 
     public Unit(UnitTypeEnum type, UnitColorEnum color, Integer positionX, Integer positionY) {

@@ -26,7 +26,6 @@ public class GameController {
         try {
             return new ResponseEntity<>(service.createNewGame(), HttpStatus.OK);
         } catch (Exception ex) {
-            ex.printStackTrace();
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }

@@ -22,14 +22,14 @@ public class Game {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "GRID_SIZE")
+    @Column(name = "GRID_SIZE", nullable = false)
     private Integer gridSize;
 
-    @Column(name = "ACTIVE")
+    @Column(name = "ACTIVE", nullable = false)
     private Boolean active = true;
 
     @CreationTimestamp
-    @Column(name = "CREATED_AT")
+    @Column(name = "CREATED_AT", nullable = false)
     private LocalDateTime createdAt;
 
     @OneToMany(mappedBy = "game", cascade = { CascadeType.PERSIST })

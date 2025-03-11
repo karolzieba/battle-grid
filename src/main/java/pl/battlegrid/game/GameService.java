@@ -20,7 +20,7 @@ public class GameService {
     private final UnitService unitService;
 
     private static final Integer PAGE_SIZE = 10;
-    private static final Sort.Direction PAGE_SORT_DIRECTION = Sort.Direction.DESC;
+    private static final Sort PAGE_SORT_DIRECTION = Sort.by("id").descending();
     private static final Integer MINIMAL_GRID_SIZE = 5;
     private static final Integer MAXIMAL_GRID_SIZE = 10;
 
